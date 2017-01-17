@@ -31,23 +31,47 @@
  * 
  */
 
-var v = 12;
+//var v = 12;
+//
+//function f1() {
+//
+//	function f2() {
+//		console.log(v);
+//	}
+//
+//	//f2(); // f2-context ==> f1-context
+//	
+//	var v=13;
+//	
+//	//return f2;
+//}
 
-function f1() {
 
-	function f2() {
-		console.log(v);
+
+//var f2Ref=f1(); // f1-context ===> global-contextÏ
+//f2Ref();  // f2-context ==> f1-context
+
+//---------------------------------------
+
+var notes="academy .js notes";
+
+function teach(){
+	//var notes="trainer .js notes";
+	
+	function learn(){
+		//var notes="own .js notes";
+		console.log('learning with '+notes);
 	}
-
-	//f2(); // f2-context ==> f1-context
-	
-	var v=13;
-	
-	return f2;
+//	learn();
+	return learn;
 }
 
-var f2Ref=f1(); // f1-context ===> global-contextÏ
-f2Ref();  // f2-context ==> f1-context
+
+
+var learnFunc=teach(); // teach-context ==> global-context
+
+learnFunc(); // learn-context ==> teach-context
+learnFunc();
 
 
 

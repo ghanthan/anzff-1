@@ -1,13 +1,94 @@
-
-  2-days  ==> JS-lang
-  1-day   ==> HTML5 New Features
-  0.5-day ==> CSS3
-  
-  
-  JS-libraries/F.Ws
-  
-  2-days  ==> NG
-  1-day   ==> backbone and 
-  0.5 day ==> Jquery
-  
-  -----------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Training Topics
+Duration (Full day)
+Delivery Method
+Start Date
+End Date
+Status
+Comments
+HTML5/CSS3
+HTML5_Introduction
+1
+Bangalore - Classroom training
+17-Jan
+17-Jan
+ 
+In Depth coverage for partial topics
+Overview of CSS3 - StyleSheets, Inheritance & Cascading, Page Layout, Nav Bars
+HTML5_Form Handling
+HTML5_Multimedia support
+HTML5_Graphics support
+HTML5_Data Storage and offline usage
+HTML5_Geolocation
+HTML5_Web Workers and Web Sockets
+Javascript
+Recognize the practical advantages of using key elements in JavaScript
+2
+Bangalore - Classroom training
+18-Jan
+19-Jan
+ 
+In Depth coverage with hands-on
+Use JavaScript Variables , Data Types and Operators
+Recognize how to complete a statement to define or call a given function
+Use Array , Math, Number, and Date Objects
+Use Native Objects in JavaScript
+Use the Function Object and Predefined Functions
+Apply Error Handling , Client side Form Validation
+Use Regular Expressions and Common Pattern Matching
+Use Event Handlers and Forms
+Use HTML DOM
+Jquery
+Introduction to jQuery
+1
+Bangalore - Classroom training
+20-Jan
+20-Jan
+ 
+In Depth coverage for partial topics
+jQuery Selectors and Filters
+Event handling and helper functions in jQuery
+Effects in jQuery
+Ajax using jQuery
+Plug-in in jQuery
+Angular JS
+Angular Introduction
+Data Binding
+Understanding Controllers
+Controllers
+Services, Routing
+Scopes
+Dependency Injection
+Templates
+Angular Expressions
+Filters
+Forms, Inheritance & Controller nesting
+Directives
+10hrs
+Bangalore - Classroom training
+21-Jan
+21-Jan
+Saturday. Can extend 2 hours to cover topics @ Learner level
+In Depth coverage for partial topics
+Backbone JS, Underscore.JS
+Introduction to Backbone.JS
+3
+Bangalore - Classroom training
+23-Jan
+25-Jan
+ 
+Backbone will be covered in depth & UnderscoreJS @ high level
+Models
+Views
+Templating
+Routing
+Collections
+Connecting to a server
+Testing

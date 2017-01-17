@@ -44,8 +44,6 @@ var cost=10.00;
 
 var found=false;
 
-
-
 /**
  * 
  *  imp-note :JS-lang falsy values
@@ -56,19 +54,13 @@ var found=false;
  */
 
 //-------------------------------------------
-
 // d. undefined
-
 var v;
-
 
 //-------------------------------------------
 
 // e. null
-
 var person=null;
-
-
 
 //-------------------------------------------
 

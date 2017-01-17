@@ -1,0 +1,44 @@
+
+
+--------------------------------------------------
+
+
+1. browser with developer-tools ( chrome )
+
+
+2. JS-Editor
+
+    1. VS-code
+    2. Atom
+    3. Eclipse with Node-plugin or nodeclipse
+    
+3. Node
+
+--------------------------------------------------
+
+NPM configuration
+
+
+set path=%PATH%;node_installation_path
+
+
+To get NPM_GLOBAL_PATH
+
+> npm get prefix
+
+set path=%PATH%;NPM_GLOBAL_PATH     
+
+> npm config set proxy cts-proxy
+> npm config set strict-ssl false
+     
+> npm i/install live-server -g
+
+on project directory
+
+> live-server --port=8080
+
+--------------------------------------------------
+
+
+    
+    

@@ -10,7 +10,7 @@
 //var productId=12;
 //
 //{
-//	let productId=14;
+	let productId=14;
 //}
 //
 //console.log(productId);
@@ -41,7 +41,7 @@
 	const V1=10;
 }
 
-console.log(V1);
+//console.log(V1);
 
 
 

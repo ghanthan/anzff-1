@@ -48,6 +48,7 @@
 	"undef" : true, // Require all non-global variables be declared before they are used.
 	"strict" : false, // Require `use strict` pragma in every file.
 	"trailing" : true, // Prohibit trailing whitespaces.
+	 "esversion": 6,
 	
 	// == Relaxing Options ================================================
 	//
@@ -122,4 +123,5 @@
 		"Java", "JavaFX", "$ARG" //no effect
 	]
 	//,	"indent" : 2 // Specify indentation spacing
+	
 }

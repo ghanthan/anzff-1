@@ -1,0 +1,37 @@
+
+
+ Third-party : JS module standards
+ 
+ 1. AMD ( Asynch Module Definition )
+ 
+   specification:
+   
+   to create module:
+   
+   	-->define('mid',[],factory);
+   	
+   to load module
+   
+    --> require(config,[],callback)	
+ 
+ 
+ 2. commonJS
+ 
+   --> every .js file is an module
+   --> all variable/function in .js file are 'private' by default.
+   --> to abstract any members , use 'module.exports'
+   --> to import any member from other module , use 'require()'
+   
+   
+   
+ //-----------------------------------
+ 
+  3. ES6 modules
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   

@@ -1,0 +1,18 @@
+
+
+ Third-party : JS module standards
+ 
+ 1. AMD ( Asynch Module Definition )
+ 
+   specification:
+   
+   to create module:
+   
+   	-->define('mid',[],factory);
+   	
+   to load module
+   
+    --> require(config,[],callback)	
+ 
+ 
+ 2. commonJS

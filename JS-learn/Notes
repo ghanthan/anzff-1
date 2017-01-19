@@ -92,6 +92,42 @@ live-server --port=8181
 //--------------------------------------------  
   
   
+  .js-lang is
+  
+     --> single-threaded pgming lang , but we can do better concurrency
+     --> all IO operations are non-blocking
+     
+     terms
+     
+     --> async func executions
+     --> callbacks
+     
+  
+  
+  e.g browser ( chrome )
+  
+  
+    a. JS-engine ( v8 ) basd on ECMAScript spec
+    
+        i. single call-stack ( to hold excution-context data )
+        ii. heap             ( free memory , to holds objects )
+        
+    b. browser's APIs ( DOM , XHR , Timer , etc  ) based on w3c standard
+    
+    c. event/message/callback - queue
+    
+    d. Event-Loop
+    
+    ref : http://latentflip.com/loupe/
+    
+    blog : https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+    
+    //--------------------------------
+    
+         
+  
+  
+  
   
   
   

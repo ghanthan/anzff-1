@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>my-forum</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header">my-forum</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Post Form</div>
+					<div class="panel-body">
+						<form id="myForm" novalidate>
+							<div class="form-group">
+								<label>Email:</label>
+								<input id="email" name="email" type="email" class="form-control input-sm">
+							</div>
+							<div class="form-group">
+								<label>Message:</label>
+								<textarea  id="message" rows="" cols="30" name="message" class="form-control"></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading">All Posts</div>
+				</div>
+				<div class="panel-body">
+					<div class="list-group" id="postBox">
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<hr/>
+	
+	
+	
+	
+	<script type="text/javascript" src="jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>

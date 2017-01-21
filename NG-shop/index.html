@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>shop</title>
 <link href="css/bootstrap.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="container">
 
@@ -13,23 +14,45 @@
 		</div>
 	</nav>
 	
-	<div ng-app="shop">
-	
-		
-		<!-- View -->
-		<div>
-			<h3>(name)</h3>
-			<h4>(price)</h4>
-			<p>(description)</p>
+	<div data-ng-app="shop">
+		<!-- View --> 
+		<div data-ng-controller="ShopController as sc" class="list-group">
+			<div data-ng-hide="product.notAvailable" 
+			     data-ng-repeat="product in sc.products|limitTo:10|orderBy:'-price' " class="list-group-item">
+			   
+			   <div class="row">
+			   		<div class="col-xs-3">
+			   			<img alt="" ng-src="{{product.images[0].thumb}}" class="img-responsive">
+			   		</div>
+			   		<div class="col-xs-9">
+			   			<span class="badge">{{$index+1}}</span>	
+						<h3>{{product.name | uppercase}}  <small>{{product.make|date:'yyyy'}}</small></h3>
+						<h4>{{product.price|priceDiscount:product.discount|currency:'&#8377;':0}}</h4>
+						<button data-ng-show="product.canBuy" class="btn btn-sm btn-primary">buy</button>
+				   		<hr/>
+				   		<section ng-controller="TabsController as tc">
+				   			<ul class="nav nav-tabs">
+				   				<li ng-class="{active:tc.isTabSelected(1)}"><a href ng-click="tc.changeTab(1)">Description</a></li>
+				   				<li ng-class="{active:tc.isTabSelected(2)}"><a href ng-click="tc.changeTab(2)">Specification</a></li>
+				   				<li ng-class="{active:tc.isTabSelected(3)}"><a href ng-click="tc.changeTab(3)">Reviews</a></li>
+				   			</ul>
+				   			<div ng-if="tc.isTabSelected(1)" class="panel">
+				   				<p>{{product.description}}</p>
+				   			</div>
+				   			<div ng-if="tc.isTabSelected(2)" class="panel">Not Yet</div>
+				   			<div ng-if="tc.isTabSelected(3)" class="panel">None Yet</div>
+				   		</section>
+				   		
+				   	</div>
+			   </div>
+			   
+			</div>
 		</div>
-		
-	
 	</div>
 	
 	
 	<!-- angular-core module -->
 	<script type="text/javascript" src="angular-1.6.1/angular.js"></script>
-
 	<script type="text/javascript" src="app.js"></script>
 
 </body>

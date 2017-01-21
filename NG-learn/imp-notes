@@ -1,0 +1,16 @@
+
+
+
+How angular doing 2-way data-binding ?
+
+
+compilation-phase:
+
+  for each model-property , will register 'watchers'
+  
+  watchers ==> read/write when model property is dirty on DOM.
+  
+   all watchers are executed by 'digest-loop'
+  
+
+   we can also register our custom watchers.

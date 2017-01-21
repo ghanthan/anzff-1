@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+.ng-scope {
+	border: 1px solid red;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+
+</head>
+<body class="container">
+
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a href class="navbar-brand">NG-learn</a>
+		</div>
+	</nav>
+
+	<div class="well" ng-app="demo">
+
+		<span class="badge">{{color}}</span>
+		<button ng-click="changeColor()">change color</button>
+
+
+		<div ng-controller="ColorController">
+			<span class="badge">{{color}}</span>
+			<button ng-click="changeColor()">change color</button>
+			
+			<div ng-controller="TextController">
+				<span class="badge">{{text}}</span>
+			</div>
+		</div>
+		
+		<div ng-controller="ColorController">
+			<span class="badge">{{color}}</span>
+			<button ng-click="changeColor()">change color</button>
+		</div>
+
+	</div>
+
+
+	<!-- angular-core module -->
+	<script type="text/javascript" src="angular-1.6.1/angular.js"></script>
+
+	<script type="text/javascript">
+		var demo = angular.module('demo', []);
+		demo.run(function($rootScope) {
+			//console.log('module init..');
+			$rootScope.color = 'red';
+			$rootScope.text = 'Welcome';
+			$rootScope.changeColor = function() {
+				console.log('changing color');
+				$rootScope.color = 'green';
+			}
+		});
+
+		demo.controller('ColorController', function($scope, $rootScope) {
+			$scope.color = 'yellow';
+			$scope.changeColor = function() {
+				$rootScope.color = 'Nil';
+				$scope.color = 'blue';
+			}
+		});
+
+		demo.controller('TextController', function($scope) {
+		});
+		
+	</script>
+
+</body>
+</html>

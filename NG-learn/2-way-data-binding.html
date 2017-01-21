@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+.ng-scope {
+	border: 1px solid red;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+
+</head>
+<body class="container">
+
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a href class="navbar-brand">NG-learn</a>
+		</div>
+	</nav>
+
+	<div class="well" ng-app="demo">
+	
+		Hello  <span class="badge">{{name}}</span>
+		
+		<div class="well" ng-controller="UserController">
+		
+		 	<button class="btn btn-sm btn-primary" ng-click="getName()">get ( ng-click )</button>
+		 	<button class="btn btn-sm btn-primary" onclick="getName()">get ( on-click )</button>
+		 	<button class="btn btn-sm btn-primary" ng-click="resetName()">reset</button>
+		 	<hr/>
+			Name: <input ng-model="name"/> 
+			<hr/>
+			Hello  <span class="badge">{{name}}</span>
+		</div>
+
+	</div>
+
+
+	<!-- angular-core module -->
+	<script type="text/javascript" src="angular-1.6.1/angular.js"></script>
+
+	<script type="text/javascript">
+		var demo = angular.module('demo', []);
+		
+		demo.controller('UserController', function($scope,$rootScope) {
+			$rootScope.name="Guest";
+			//$scope.name="Nag";
+			$scope.getName=function(){
+				$scope.name="Nagabhushanam";
+			}
+			window.getName=function(){
+				console.log('getting name');
+				$scope.name="Nagabhushanam";
+				$rootScope.name="ROOT";
+				$scope.$apply(); // run watchers from root-scope
+				//$scope.$digest(); // run watchers in current & its child scopes
+			}
+			$scope.resetName=function(){
+				$scope.name="Nag";
+			}
+			
+			$scope.$watch('name',function(newName,oldName){
+				console.log('custom watcher executing by digest-loop');
+			})
+			
+		});
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="container">
+
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a href class="navbar-brand">NG-learn</a>
+		</div>
+	</nav>
+
+	<div class="well" ng-app="demo">
+
+		<div class="well" ng-controller="UserController">
+			<select ng-options="n for n in [5,10,15,50]" ng-model="count"></select>
+			<input ng-model="count">
+			<table class="table table-bordered">
+				<tr ng-repeat="user in users">
+					<td>{{user.fname}}</td>
+					<td>{{user.lname}}</td>
+				</tr>
+			</table>
+
+		</div>
+
+
+	</div>
+
+
+	<!-- angular-core module -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<script type="text/javascript">
+		var demo = angular.module('demo', []);
+		demo.controller('UserController', function($scope,$rootScope,$http,$sce) {
+			
+			$scope.count=5;
+			
+			$scope.$watch("count",function(newCount,oldCount){
+				loadUsers(newCount);	
+			})
+			
+			function loadUsers(count){
+				$http.jsonp(`http://www.filltext.com/?callback=JSON_CALLBACK&rows=${count}&fname={firstName}&lname={lastName}`)
+				 .then(function (resp) {
+			        $scope.users = resp.data
+			     })
+			}
+		     
+		});
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <style>
+            .ng-scope{
+                border:1px solid red;
+                padding: 5px;
+                margin: 15px;
+            }
+        </style>
+    </head>
+    <body class="container">
+       
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-brand">NG-learn</div>
+        </nav>
+        
+        <div ng-app="demo">
+
+            <div class="well" ng-controller="NameController">
+                
+                <button class="btn btn-primary" ng-click="loadName()"> Load Name </button>
+                <button id="jqBtn" class="btn btn-primary"> get Name ( jquery ) </button>
+
+                <button  class="btn btn-primary" ng-click="resetName()"> Reset Name </button>
+
+                
+
+                <br/><br/><hr/>
+                Name : <input ng-model="name"/>
+                <hr/>
+                Hello : <span class="badge" ng-bind="name"> guest </span>
+
+            </div>
+         
+        </div>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="angular-1.6.1/angular.js"></script>
+        <script>
+        var demoMod=angular.module('demo',[]);
+
+        demoMod.controller('NameController',function($scope){
+            $scope.name="guest";
+            $scope.loadName=function(){
+                $scope.name="Nag";
+            }
+            $scope.resetName=function(){
+                $scope.name="guest";
+            }
+
+            $('#jqBtn').click(function(){
+                console.log('getting name');
+                 $scope.name="Nagbhushanam";
+                 $scope.$apply(); // trigger digest-loop
+            });
+
+            $scope.$watch('name',function(newName,oldName){
+                console.log('my name-watcher executed by digest-loop');
+                console.log(`${newName} - ${oldName}`)
+            })
+
+        });
+
+        </script>
+
+    </body>
+</html>

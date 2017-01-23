@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <style>
+            
+        </style>
+    </head>
+    <body class="container">
+       
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-brand">NG-learn</div>
+        </nav>
+        
+        <div ng-app="demo">
+
+            <div class="well" ng-controller="UserController">
+
+                <select ng-options="n for n in [5,10,15,50]" ng-model="count"></select>
+                <input ng-model="count"/>
+                <table class="table table-bordered">
+                    <tr ng-repeat="user in users">
+                         <td>{{user.fname}}</td>
+                         <td>{{user.lname}}</td>   
+                    </tr>
+                </table>
+
+
+            </div>
+         
+        </div>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.js"></script>
+        <script>
+        var demoMod=angular.module('demo',[]);
+
+        demoMod.controller('UserController',function($scope,$http){
+           
+         $scope.count=5;
+
+          $scope.$watch('count',function(newCount,oldCount){
+              loadUsers(newCount);
+          })
+
+          function loadUsers(count){
+            $http.jsonp(`http://www.filltext.com/?callback=JSON_CALLBACK&rows=${count}&fname={firstName}&lname={lastName}`).
+            success(function (data) {
+                $scope.users = data
+            })
+          }
+
+        });
+
+        </script>
+
+    </body>
+</html>

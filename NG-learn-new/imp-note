@@ -1,0 +1,14 @@
+
+
+how 2-way data-binding happening in NG ?
+
+for every model property , 
+angular internally register 'watcher' functions
+'watcher' function ==> read/write model when it is dirty.
+
+
+all watchers are executed by 'digest-loop'
+
+
+
+we can also register custom-watchers , to know model changes

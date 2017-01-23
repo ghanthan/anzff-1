@@ -1,0 +1,38 @@
+ <form name="reviewForm" 
+                novalidate  
+                ng-controller="ReviewFormController"
+                ng-submit="submitReview(product)">
+
+<div class="alert alert-success" ng-if="review.stars">
+    <span class="badge">{{review.stars}}</span>
+    <small>{{review.author}}</small>
+    <p>{{review.comment}}</p>
+</div> 
+
+<div class="form-group">
+    <label>stars</label>
+    <select ng-options="n for n in [1,2,3,4,5]" 
+            class="form-control" 
+            required
+            ng-model="review.stars">
+    </select>
+</div>
+<div class="form-group">
+    <label>author</label>
+    <input class="form-control" 
+            type="email"
+            name="author"
+            ng-model="review.author" 
+            ng-disabled="false" required/>
+</div>
+<div class="form-group">
+    <label>comment</label>
+    <textarea class="form-control" 
+                ng-model="review.comment" required>
+    </textarea>
+</div>
+<button class="btn btn-primary">submit</button>
+
+    <!--<pre>{{reviewForm|json}}</pre>   -->
+
+</form>

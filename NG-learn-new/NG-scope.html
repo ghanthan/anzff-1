@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <style>
+            .ng-scope{
+                border:1px solid red;
+                padding: 5px;
+                margin: 15px;
+            }
+        </style>
+    </head>
+    <body class="container">
+       
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-brand">NG-learn</div>
+        </nav>
+        
+        <div ng-app="demo">
+         
+            <span class="badge">{{color}}</span>
+            <span class="badge">{{text}}</span>
+            <button ng-click="changeColor()">change color</button>
+            <button ng-click="changeText()">change text</button>
+          
+
+            <div ng-controller="ColorController">
+                <span class="badge">{{color}}</span>
+                <div ng-controller="TextController">
+                    <span class="badge">{{color}}</span>
+                    <span class="badge">{{text}}</span>
+                    <button ng-click="changeText()">change text</button>
+                </div>
+            </div>
+
+            <div ng-controller="ColorController">
+                <span class="badge">{{color}}</span>
+                <button ng-click="changeColor()">change color</button>
+            </div>
+
+        </div>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="angular-1.6.1/angular.js"></script>
+        <script>
+            var demoMod=angular.module('demo',[]);
+
+            demoMod.run(function($rootScope){
+                $rootScope.color="red";
+                $rootScope.text="Welcome";
+                $rootScope.changeColor=function(){
+                    $rootScope.color="new-red"
+                    $rootScope.$broadcast('change-color',{color:'new-red'});
+                }
+                $rootScope.changeText=function(){
+                    $rootScope.text="Welcome Again"
+                }
+                $rootScope.$on('change-text',function(e,data){
+                     $rootScope.text=data.text;
+                });
+                
+            });
+
+            demoMod.controller('ColorController',function($scope){
+                $scope.color="yellow";
+                $scope.changeColor=function(){
+                    $scope.color="new-yellow"
+                    //$scope.$parent.color="new-yellow";
+                }
+
+            });
+            demoMod.controller('TextController',function($scope){
+                $scope.changeText=function(){
+                    //$scope.$parent.$parent.text="Welcome Again";
+                    $scope.$emit('change-text',{text:'Hello'});
+                }
+                  $scope.$on('change-color',function(e,data){
+                    console.log('change-color event happened..');
+                    $scope.color=data.color;
+                });
+            });
+
+        </script>
+
+    </body>
+</html>

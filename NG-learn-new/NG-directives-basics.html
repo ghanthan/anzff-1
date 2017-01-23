@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+    </head>
+    <body class="container">
+       
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-brand">NG-learn</div>
+        </nav>
+
+        <div ng-app="demo">
+
+            <div my-hello-world></div>
+            <div my:hello:world></div>
+
+            <hr/>
+
+            <my-hello-world></my-hello-world>
+            <my:hello:world></my:hello:world>
+
+            <hr/>
+
+            <div class="my-hello-world"></div>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       
+       
+        <script src="angular-1.6.1/angular.js"></script>
+        <script>
+            var demoMod=angular.module('demo',[]);
+            demoMod.directive('myHelloWorld',function(){
+                return {
+                    restrict:'AEC',
+                    templateUrl:"templates/hello-world.html"
+                };
+            });
+        </script>    
+
+
+
+
+    </body>
+</html>

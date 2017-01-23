@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body class="container">
+       
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-brand">my-Shop</div>
+        </nav>
+
+        <div ng-app="shop">
+            <!--View-->
+            <div ng-controller="ShopController as sc" class="list-group">
+                <div ng-hide="product.notAvaialble"
+                     ng-repeat="product in sc.products | limitTo:10 | orderBy:'-price'" class="list-group-item">
+                     <product-title></product-title>
+                     <hr/>
+                     <product-tabs></product-tabs>   
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="angular-1.6.1/angular.js"></script>
+        <script src="jcs-auto-validate.js"></script>
+        <script src="app.js"></script>
+
+    </body>
+</html>

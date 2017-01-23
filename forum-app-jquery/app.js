@@ -6,7 +6,7 @@
 $(document).ready(function() {
 	
 	var $box=$('#postBox');
-	var posts=null;
+	var posts=[];
 	
 	function loadPosts(){
 		
@@ -81,16 +81,18 @@ $(document).ready(function() {
 			message : $message.val()
 		};
 		
-		$.ajax('http://0.0.0.0:3000/api/posts', {
-			method:'POST',
-			data:formData,
-			type:'json',
-			success:function(){
-				loadPosts();
-			}
-		})
+		// $.ajax('http://0.0.0.0:3000/api/posts', {
+		// 	method:'POST',
+		// 	data:formData,
+		// 	type:'json',
+		// 	success:function(){
+		// 		loadPosts();
+		// 	}
+		// })
 		
-		posts.push(post);
+		posts.push(formData);
+
+		loadPosts();
 		
 		$email.val('');
 		$message.val('');

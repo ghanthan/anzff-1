@@ -15,8 +15,11 @@
         <div ng-app="shop">
             <!--View-->
             <div ng-controller="ShopController as sc" class="list-group">
+                <div ng-if="message" class="alert alert-danger">
+                    <pre>{{message|json}}</pre>
+                </div>
                 <div ng-hide="product.notAvaialble"
-                     ng-repeat="product in sc.products | limitTo:10 | orderBy:'-price'" class="list-group-item">
+                     ng-repeat="product in products | limitTo:10 | orderBy:'-price'" class="list-group-item">
                      <product-title></product-title>
                      <hr/>
                      <product-tabs></product-tabs>   

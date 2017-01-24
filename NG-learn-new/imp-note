@@ -12,3 +12,12 @@ all watchers are executed by 'digest-loop'
 
 
 we can also register custom-watchers , to know model changes
+
+
+//-------------------------------------
+
+
+how to create angular services ?
+
+
+provider  with factory method   ==> service-objs

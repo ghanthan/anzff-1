@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-brand">NG-learn</div>
+    </nav>
+    <div ng-app="demo">
+        <div ng-controller="HitController" class="well">
+            <button class="btn btn-danger" ng-click="doHit()"> Hit-1 </button>
+            <span class="badge">{{count}}</span>
+        </div>
+        <div ng-controller="HitController" class="well">
+            <button class="btn btn-danger" ng-click="doHit()"> Hit-2 </button>
+            <span class="badge">{{count}}</span>
+        </div>
+        <div ng-controller="KickController" class="well">
+            <button class="btn btn-danger" ng-click="doKick()"> Kick-1 </button>
+            <span class="badge">{{count}}</span>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="angular-1.6.1/angular.js"></script>
+    <script>
+        var demoMod = angular.module('demo', []);
+
+        demoMod.config(function (counterServiceProvider) {
+            console.log('demo-module confg....');
+            //counterServiceProvider.setInitialCount(1000);
+        });
+
+        demoMod.controller('HitController', function ($scope, counterService) {
+            console.log('New HitController instacnce creacted..');
+            $scope.count = counterService.getCount();
+            $scope.doHit = function () {
+                counterService.doCount();
+                $scope.count = counterService.getCount();
+            };
+        });
+
+        demoMod.controller('KickController', function ($scope, counterService) {
+            console.log('New KickController instacnce creacted..');
+            $scope.count = counterService.getCount();
+            $scope.doKick = function () {
+                counterService.doCount();
+                $scope.count = counterService.getCount();
+            };
+        });
+
+
+        // demoMod.provider('counterService', function () {
+        //     console.log('counterServiceProvider instance created..');
+
+        //     this.count=0;
+
+        //     this.setInitialCount = function (initialCount) {
+        //         this.count = initialCount;
+        //     }
+
+        //     // factory method..
+        //     this.$get = function () {
+        //         console.log('counterServiceProvider factory-method invoked....');
+        //         var self=this;
+        //         var service = {
+        //             doCount: function () {
+        //                 self.count++;
+        //             },
+        //             getCount: function () {
+        //                 return self.count;
+        //             }
+        //         };
+        //         return service;
+        //     }
+
+        // });
+
+
+        demoMod.factory('counterService', function () {
+            var count = 0;
+            var service = {
+                doCount: function () {
+                    count++;
+                },
+                getCount: function () {
+                    return count;
+                }
+            };
+            return service;
+        });
+
+    </script>
+</body>
+
+</html>

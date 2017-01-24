@@ -1,0 +1,14 @@
+
+
+
+Limitatios of jQuery
+
+
+--> code oraganization is difficult
+--> too low level ( operation close to DOM )
+--> data-binding is manual
+
+
+   soln:
+   
+   --> Angular F.W  

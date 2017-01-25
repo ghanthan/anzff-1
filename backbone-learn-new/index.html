@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body class="container">
+    
+        <div class="page-header">backbone-learn </div>
+
+        <div id="productsBox" class="list-group">
+
+        </div>
+
+        <script type="text/template" id="product-template">
+            <div class="list-group-item">
+                <h3><%=name%></h3>
+                <h3><%=price%></h3>
+                <p><%=description%></p>
+                <button class="btn btn-primary">buy</button>
+            </div>
+        </script>
+
+        <!--<div id="box" style="border:1px solid red">
+            <div class="jumbotron">
+                Welcome to Backbone
+            </div>
+            <button class="btn btn-danger">hide</button>
+            <button class="btn btn-primary">show</button>
+        <div>-->
+
+
+        <!--<script type="text/template" id="myTemplate">
+            <div class="well">
+                Welcome <span class="badge"><%=name%></span>
+            </div>
+        </script>    -->
+
+        <script src="lib/jquery.js"></script>
+        <script src="lib/underscore.js"></script> 
+        <script src="lib/backbone.js"></script>
+
+        <script src="app.js"></script>
+
+    </body>
+</html>
